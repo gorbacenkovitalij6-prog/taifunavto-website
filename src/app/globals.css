@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 7%;
+    --foreground: 0 0% 98%;
+    --card: 230 25% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 230 25% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 330 90% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 230 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 230 20% 18%;
+    --muted-foreground: 230 10% 55%;
+    --accent: 270 90% 65%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 230 20% 20%;
+    --input: 230 20% 15%;
+    --ring: 330 90% 60%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(330 90% 60%), hsl(270 90% 65%));
+  border-radius: 3px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(230 25% 7%) 0%, hsl(250 30% 12%) 50%, hsl(230 25% 7%) 100%);
+}
+
+.gradient-hero {
+  background:
+    radial-gradient(ellipse at 20% 50%, hsl(330 90% 60% / 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, hsl(270 90% 65% / 0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 60% 80%, hsl(200 90% 50% / 0.08) 0%, transparent 40%),
+    linear-gradient(180deg, hsl(230 25% 7%) 0%, hsl(250 30% 10%) 100%);
+}
+
+/* Neon glow text */
+.neon-text {
+  background: linear-gradient(135deg, hsl(330 90% 65%), hsl(270 90% 70%), hsl(200 90% 60%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.neon-text-pink {
+  background: linear-gradient(90deg, hsl(330 90% 65%), hsl(350 90% 65%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: hsl(230 25% 11% / 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid hsl(230 20% 25% / 0.5);
+}
+
+.glass-card-hover:hover {
+  background: hsl(230 25% 13% / 0.7);
+  border-color: hsl(330 90% 60% / 0.3);
+  box-shadow: 0 0 30px hsl(330 90% 60% / 0.1);
+}
+
+/* Neon border */
+.neon-border {
+  position: relative;
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, hsl(330 90% 60%), hsl(270 90% 65%), hsl(200 90% 60%));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Glow button */
+.glow-btn {
+  background: linear-gradient(135deg, hsl(330 90% 55%), hsl(270 80% 55%));
+  box-shadow: 0 4px 30px hsl(330 90% 60% / 0.4);
+  transition: all 0.3s ease;
+}
+
+.glow-btn:hover {
+  box-shadow: 0 6px 40px hsl(330 90% 60% / 0.6);
+  transform: translateY(-2px);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-neon {
+  0%, 100% { box-shadow: 0 0 20px hsl(330 90% 60% / 0.3), 0 0 40px hsl(270 90% 65% / 0.2); }
+  50% { box-shadow: 0 0 30px hsl(330 90% 60% / 0.5), 0 0 60px hsl(270 90% 65% / 0.3); }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 3s ease-in-out infinite;
+}
+
+/* Gradient line */
+.gradient-line {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, hsl(330 90% 60%), hsl(270 90% 65%), transparent);
+}
+
+/* Number badge */
+.number-badge {
+  background: linear-gradient(135deg, hsl(330 90% 55%), hsl(270 80% 55%));
+  box-shadow: 0 0 20px hsl(330 90% 60% / 0.4);
+}
